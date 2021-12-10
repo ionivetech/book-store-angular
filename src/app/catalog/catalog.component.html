@@ -1,0 +1,28 @@
+<div class="product-lists" *ngIf="catalogItems">
+    <div *ngFor='let catalog of catalogItems' class="product-list">
+        <img src="assets/thumbnail/{{catalog.thumbnail}}">
+        <span class="product-list-name">{{catalog.name}}</span>
+        <span class="product-list-author">{{catalog.author}}</span>
+        <span class="product-list-price">{{catalog.price | priceFormat}}</span>
+        
+        <button (click)="addToCart(catalog)" [disabled]="checkItems(catalog.name)">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+            </svg>
+            <span>Keranjang</span>
+        </button>
+    </div>
+</div>
+
+<div class="pagination">
+    <button (click)="prevPage()" [disabled]="!pagePrev">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+    </button>
+    <button (click)="nextPage()" [disabled]="!pageNext">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+    </button>
+</div>

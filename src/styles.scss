@@ -1,1 +1,85 @@
-/* You can add global styles to this file, and also import other style files */
+// Setup Font
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap');
+
+// Import Swiper
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
+
+// Colors Variable
+$color-primary: #4d79d5;
+$color-white: #ffffff;
+$color-black: #11131a;
+$color-error: #d94242;
+$color-gray: #5a5e6b;
+$color-gray-light: #ebebeb;
+$color-background: #f5f7ff;
+
+// Shadow Variable
+$base-shadow: 0 20px 28px 0 rgb(0, 0, 0, 0.05);
+$shadow-card: 0px 6px 12px rgba(234, 235, 241, 0.50);
+$shadow-btn-primary: 0px 4px 10px rgba(71, 121, 213, 0.50);
+
+// Setup
+html, body {
+    width: 100vw;
+    height: 100vh;
+}
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: $color-background;
+    margin: 0;
+    padding: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}
+
+// Container
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+// Function Flex
+@mixin flex-center-x-y() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// Custom Swiper
+.swiper-custom {
+    .swiper-button-prev, .swiper-button-next {
+        background-color: $color-white;
+        width: 44px;
+        height: 44px;
+        border-radius: 22px;
+
+        &::after {
+            font-size: 20px;
+            font-weight: 700;
+            color: $color-primary;
+        }
+    }
+    .swiper-button-prev {
+        left: 5px;
+    }
+    .swiper-button-next {
+        right: 5px;
+    }
+    .swiper-pagination {
+        .swiper-pagination-bullet-active {
+            background-color: $color-primary !important;
+        }
+        .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            opacity: 1;
+            background-color: $color-white;
+        }
+    }
+}

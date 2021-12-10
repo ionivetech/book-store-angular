@@ -1,0 +1,30 @@
+<div *ngIf="cartItems.length > 0 else emptyCart">
+    <div class="product-lists">
+        <div *ngFor="let cart of cartItems; let i = index" class="product-list">
+            <div class="wrap-info">
+                <img src="assets/thumbnail/{{cart.thumbnail}}">
+                <div class="wrap-title">
+                    <span class="wrap-title-name">{{cart.name}}</span>
+                    <span class="wrap-title-author">{{cart.author}}</span>
+                </div>
+            </div>
+    
+            <span class="product-list-price">{{cart.price | priceFormat}}</span>
+    
+            <button (click)="deleteFromCart(i)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <h4 class="subtotal">Total : <span>{{subtotal | priceFormat}}</span></h4>
+</div>
+
+<!-- If shopping cart is empty -->
+<ng-template #emptyCart>
+    <div class="empty-cart">
+        Shopping Cart Is Empty
+    </div>
+</ng-template>

@@ -1,0 +1,83 @@
+@import '../../../styles.scss';
+
+.header {
+    width: 100%;
+    height: 80px;
+    background-color: $color-white;
+    box-shadow: $shadow-card;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    ul {
+        list-style-type: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+
+        a {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            font-size: 16px;
+            color: $color-gray;
+            margin-right: 40px;
+            text-decoration: none;
+            cursor: pointer;
+
+            &:hover {
+                color: $color-primary;
+
+                svg {
+                    stroke: $color-primary;
+                }
+            }
+            svg {
+                width: 20px;
+                height: 20px;
+                margin-right: 5px;
+                stroke: $color-gray;
+            }
+        }
+        .active {
+            font-weight: 600;
+            color: $color-primary;
+
+            svg {
+                stroke: $color-primary;
+            }
+        }
+    }
+    .header-shopping-total {
+        @include flex-center-x-y();
+        height: 100%;
+        position: relative;
+
+        svg {
+            width: 40px;
+            height: 40px;
+            stroke: $color-gray;
+        }
+        .total-shopping {
+            @include flex-center-x-y();
+            position: absolute;
+            top: 14px;
+            left: 20px;
+            width: 28px;
+            height: 28px;
+            border-radius: 14px;
+            font-size: 13px;
+            font-weight: 600;
+            background-color: $color-primary;
+            color: $color-white;
+        }
+    }
+    .shop-active {
+        svg {
+            stroke: $color-primary;
+        }
+    }
+}
